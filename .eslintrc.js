@@ -30,6 +30,7 @@ const config = {
     "plugin:prettier/recommended",
     "prettier/react",
     "prettier/standard",
+    "prettier"
   ],
 };
 
