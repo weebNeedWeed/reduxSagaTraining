@@ -1,15 +1,19 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import TaskBoardContainer from "./TaskBoard/Container";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 
+import ThemeProvider from "@material-ui/styles/ThemeProvider";
+
+import defaultCustomTheme from "./../commons/theme/index";
+
 function App() {
 	return (
-		<Fragment>
+		<ThemeProvider theme={defaultCustomTheme}>
 			<CssBaseline />
 			<TaskBoardContainer />
-		</Fragment>
+		</ThemeProvider>
 	);
 }
 
