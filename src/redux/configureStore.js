@@ -8,4 +8,4 @@ const configureStore = () => {
 	return createStore(rootReducer, composeWithDevTools(applyMiddleware()));
 };
 
-export default configureStore();
+export default configureStore;
