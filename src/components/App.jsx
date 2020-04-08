@@ -8,12 +8,20 @@ import ThemeProvider from "@material-ui/styles/ThemeProvider";
 
 import defaultCustomTheme from "./../commons/theme/index";
 
+import { Provider } from "react-redux";
+
+import configureStore from "./../redux/configureStore";
+
+const store = configureStore();
+
 function App() {
 	return (
-		<ThemeProvider theme={defaultCustomTheme}>
-			<CssBaseline />
-			<TaskBoardContainer />
-		</ThemeProvider>
+		<Provider store={store}>
+			<ThemeProvider theme={defaultCustomTheme}>
+				<CssBaseline />
+				<TaskBoardContainer />
+			</ThemeProvider>
+		</Provider>
 	);
 }
 
