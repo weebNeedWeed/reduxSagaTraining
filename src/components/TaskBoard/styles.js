@@ -1,7 +1,7 @@
 import { makeStyles, createStyles } from "@material-ui/styles";
 
 let styles = () => {
-	return createStyles({});
+  return createStyles({});
 };
 
 const useStyles = makeStyles(styles);
