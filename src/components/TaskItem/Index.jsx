@@ -14,45 +14,45 @@ import PropTypes from "prop-types";
 import useStyles from "./styles";
 
 function TaskItem({ task, status }) {
-	const classes = useStyles();
-	return (
-		<Card>
-			<CardContent>
-				<Grid container justify="space-between">
-					<Grid item md={8}>
-						<Typography variant="h3" component="h2">
-							{task.title}
-						</Typography>
-					</Grid>
-					<Grid item md={4}>
-						{status.label}
-					</Grid>
-				</Grid>
-				<p>{task.description}</p>
-			</CardContent>
-			<CardActions className={classes.cardActions}>
-				<Fab color="primary" aria-label="Edit" size="small">
-					<Icon fontSize="small">edit</Icon>
-				</Fab>
-				<Fab color="primary" aria-label="Delete" size="small">
-					<Icon fontSize="small">delete</Icon>
-				</Fab>
-			</CardActions>
-		</Card>
-	);
+  const classes = useStyles();
+  return (
+    <Card>
+      <CardContent>
+        <Grid container justify="space-between">
+          <Grid item md={8}>
+            <Typography variant="h3" component="h2">
+              {task.title}
+            </Typography>
+          </Grid>
+          <Grid item md={4}>
+            {status.label}
+          </Grid>
+        </Grid>
+        <p>{task.description}</p>
+      </CardContent>
+      <CardActions className={classes.cardActions}>
+        <Fab color="primary" aria-label="Edit" size="small">
+          <Icon fontSize="small">edit</Icon>
+        </Fab>
+        <Fab color="primary" aria-label="Delete" size="small">
+          <Icon fontSize="small">delete</Icon>
+        </Fab>
+      </CardActions>
+    </Card>
+  );
 }
 
 TaskItem.propTypes = {
-	task: PropTypes.shape({
-		id: PropTypes.number,
-		status: PropTypes.number,
-		title: PropTypes.string,
-		description: PropTypes.string,
-	}),
-	status: PropTypes.shape({
-		value: PropTypes.number,
-		label: PropTypes.string,
-	}),
+  task: PropTypes.shape({
+    id: PropTypes.number,
+    status: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }),
+  status: PropTypes.shape({
+    value: PropTypes.number,
+    label: PropTypes.string,
+  }),
 };
 
 export default TaskItem;

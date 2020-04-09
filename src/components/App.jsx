@@ -15,14 +15,14 @@ import configureStore from "./../redux/configureStore";
 const store = configureStore();
 
 function App() {
-	return (
-		<Provider store={store}>
-			<ThemeProvider theme={defaultCustomTheme}>
-				<CssBaseline />
-				<TaskBoardContainer />
-			</ThemeProvider>
-		</Provider>
-	);
+  return (
+    <Provider store={store}>
+      <ThemeProvider theme={defaultCustomTheme}>
+        <CssBaseline />
+        <TaskBoardContainer />
+      </ThemeProvider>
+    </Provider>
+  );
 }
 
 export default App;
