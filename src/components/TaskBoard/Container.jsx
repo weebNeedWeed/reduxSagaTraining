@@ -1,30 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import TaskBoard from "./Index";
 
 import { STATUSES } from "./../../constants/index";
 
+import { fetchListTaskRequest } from "./../../actions/task";
+
+import { useDispatch, useSelector } from "react-redux";
+
 function TaskBoardContainer() {
-  const tasks = [
-    {
-      id: 0,
-      status: 0,
-      title: "read",
-      description: "read book",
-    },
-    {
-      id: 1,
-      status: 1,
-      title: "write",
-      description: "write book",
-    },
-    {
-      id: 2,
-      status: 2,
-      title: "done",
-      description: "done",
-    },
-  ];
+  const dispatch = useDispatch();
+
+  const tasks = useSelector((state) => state.task.listTask);
+
+  useEffect(() => {
+    dispatch(fetchListTaskRequest());
+  }, [dispatch]);
 
   const [openForm, setOpenForm] = useState(false);
 
@@ -32,13 +23,15 @@ function TaskBoardContainer() {
   const handleCloseForm = () => setOpenForm(false);
 
   return (
-    <TaskBoard
-      statuses={STATUSES}
-      tasks={tasks}
-      handleCloseForm={handleCloseForm}
-      handleOpenForm={handleOpenForm}
-      openForm={openForm}
-    />
+    <div>
+      <TaskBoard
+        statuses={STATUSES}
+        tasks={tasks}
+        handleCloseForm={handleCloseForm}
+        handleOpenForm={handleOpenForm}
+        openForm={openForm}
+      />
+    </div>
   );
 }
 

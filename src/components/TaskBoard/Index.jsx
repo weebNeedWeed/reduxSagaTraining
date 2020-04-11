@@ -20,7 +20,7 @@ function TaskBoard(props) {
     let xhtml = null;
 
     xhtml = (
-      <Grid container spacing={3}>
+      <Grid container spacing={0}>
         {statuses.map((status) => {
           let filteredTasks = tasks.filter(
             (task) => task.status === status.value,
@@ -44,7 +44,7 @@ function TaskBoard(props) {
   };
 
   return (
-    <div className={classes.taskboard}>
+    <div className={classes.taskBoard}>
       <Button variant="contained" color="primary" onClick={handleOpenForm}>
         <AddIcon /> Them moi
       </Button>

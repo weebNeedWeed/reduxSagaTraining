@@ -7,8 +7,12 @@ import Box from "@material-ui/core/Box";
 
 import PropTypes from "prop-types";
 
+import useStyle from "./styles";
+
 // @prop status: one status element in STATUSES const
 function TaskList({ status, tasks }) {
+  const classes = useStyle();
+
   const renderTaskItem = function () {
     let xhtml = tasks.map((task) => {
       return <TaskItem task={task} status={status} key={task.id} />;
@@ -20,7 +24,7 @@ function TaskList({ status, tasks }) {
       <Box mb={2} mt={2}>
         <strong>{status.label}</strong>
       </Box>
-      <div>{renderTaskItem()}</div>
+      <div className={classes.taskList}>{renderTaskItem()}</div>
     </Grid>
   );
 }

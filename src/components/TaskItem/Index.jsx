@@ -16,7 +16,7 @@ import useStyles from "./styles";
 function TaskItem({ task, status }) {
   const classes = useStyles();
   return (
-    <Card>
+    <Card className={classes.taskItem}>
       <CardContent>
         <Grid container justify="space-between">
           <Grid item md={8}>
