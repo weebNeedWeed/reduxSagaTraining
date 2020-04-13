@@ -1,4 +1,4 @@
-import taskConstants from "./../constants/task";
+import taskConstants from "../constants/task";
 
 const initialState = {
   listTask: [],
@@ -20,6 +20,11 @@ const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         listTask: [],
+      };
+    case taskConstants.FILTER_TASK_SUCCESS:
+      return {
+        ...state,
+        listTask: action.payload.data,
       };
     default:
       return state;

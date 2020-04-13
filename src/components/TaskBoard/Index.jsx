@@ -4,10 +4,13 @@ import TaskList from "./../TaskList/Index";
 import TaskForm from "../TaskForm/Index";
 
 import Grid from "@material-ui/core/Grid";
-
 import Button from "@material-ui/core/Button";
+
 import AddIcon from "@material-ui/icons/Add";
+
 import PropTypes from "prop-types";
+
+import SearchBoxContainer from "./../SearchBox/Container";
 
 import useStyles from "./styles";
 
@@ -39,6 +42,11 @@ function TaskBoard(props) {
     return xhtml;
   };
 
+  const renderSearchBox = function () {
+    let xhtml = <SearchBoxContainer />;
+    return xhtml;
+  };
+
   const renderForm = function () {
     return <TaskForm openForm={openForm} handleCloseForm={handleCloseForm} />;
   };
@@ -48,6 +56,7 @@ function TaskBoard(props) {
       <Button variant="contained" color="primary" onClick={handleOpenForm}>
         <AddIcon /> Them moi
       </Button>
+      {renderSearchBox()}
       {renderBoard()}
       {renderForm()}
     </div>

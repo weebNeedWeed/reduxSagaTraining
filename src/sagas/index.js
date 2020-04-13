@@ -1,6 +1,9 @@
-function* index() {
-  yield true;
-  console.log("heelo");
+import { all, fork } from "redux-saga/effects";
+
+import taskSaga from "./task";
+
+function* root() {
+  yield all([fork(taskSaga)]);
 }
 
-export default index;
+export default root;

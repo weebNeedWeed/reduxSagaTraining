@@ -7,3 +7,6 @@ import { toast } from "react-toastify";
 export const showErrorMessage = function (message) {
   toast.error(message);
 };
+export const showSuccessMessage = function (message) {
+  toast.success(message);
+};

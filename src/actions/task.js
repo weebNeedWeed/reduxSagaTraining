@@ -1,8 +1,4 @@
-import { fetchListTaskFromApi } from "./../callApi/task";
-
 import taskConstants from "./../constants/task";
-
-import { showErrorMessage } from "./../commons/utils/showToastMessage";
 
 /*
  * dispatch fetchListTaskReset action to reset state data
@@ -10,17 +6,12 @@ import { showErrorMessage } from "./../commons/utils/showToastMessage";
  * then dispatch fetchListTaskSuccess action to approve data
  * or dispatch fetchListTaskFailed action when error
  */
-export const fetchListTaskRequest = function () {
-  return async (dispatch) => {
-    dispatch(fetchListTaskReset());
-    try {
-      const response = await fetchListTaskFromApi();
-      dispatch(fetchListTaskSuccess(response.data));
-    } catch (error) {
-      const message = error.message || taskConstants.FETCH_TASK_FAILED_MESSAGE;
-      showErrorMessage(message);
-      dispatch(fetchListTaskFailed(error));
-    }
+export const fetchListTaskRequest = function (keyword = "") {
+  return {
+    type: taskConstants.FETCH_TASK_REQUEST,
+    payload: {
+      keyword,
+    },
   };
 };
 
@@ -44,6 +35,30 @@ export const fetchListTaskFailed = function (error) {
     type: taskConstants.FETCH_TASK_RESET,
     payload: {
       error,
+    },
+  };
+};
+
+// filter task
+
+/*
+ * Filter task saga
+ * filterTaskRequest -> filterTaskSuccess
+ */
+
+export const filterTaskRequest = function (keyword) {
+  return {
+    type: taskConstants.FILTER_TASK_REQUEST,
+    payload: {
+      keyword,
+    },
+  };
+};
+export const filterTaskSuccess = function (data) {
+  return {
+    type: taskConstants.FILTER_TASK_SUCCESS,
+    payload: {
+      data,
     },
   };
 };
