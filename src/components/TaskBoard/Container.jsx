@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import TaskBoard from "./Index";
 
 import { STATUSES } from "./../../constants/index";
+
+import * as modalActions from "./../../actions/modal";
 
 import { fetchListTaskRequest } from "./../../actions/task";
 
@@ -17,19 +19,18 @@ function TaskBoardContainer() {
     dispatch(fetchListTaskRequest());
   }, [dispatch]);
 
-  const [openForm, setOpenForm] = useState(false);
-
-  const handleOpenForm = () => setOpenForm(true);
-  const handleCloseForm = () => setOpenForm(false);
+  const openTaskCreator = () => {
+    dispatch(modalActions.changeDisplayStatus(true));
+    dispatch(modalActions.changeModalTitle("Them moi"));
+    dispatch(modalActions.changeModalContent(<p>sdadas</p>));
+  };
 
   return (
     <div>
       <TaskBoard
         statuses={STATUSES}
         tasks={tasks}
-        handleCloseForm={handleCloseForm}
-        handleOpenForm={handleOpenForm}
-        openForm={openForm}
+        openTaskCreator={openTaskCreator}
       />
     </div>
   );

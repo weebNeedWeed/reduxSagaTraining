@@ -9,7 +9,7 @@ const styles = () =>
       left: 0,
       width: "100%",
       height: "100%",
-      zIndex: 99,
+      zIndex: 99999,
     },
     globalLoading__image: {
       position: "fixed",
@@ -17,6 +17,7 @@ const styles = () =>
       left: "50%",
       width: "30%",
       transform: "translate(-50%,-50%)",
+      zIndex: 99999,
     },
   });
 

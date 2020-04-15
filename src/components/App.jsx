@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 
 import TaskBoardContainer from "./TaskBoard/Container";
 
+import CommonModalContainer from "./CommonModal/Container";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,6 +15,7 @@ function App() {
       <TaskBoardContainer />
       <ToastContainer />
       <GlobalLoadingContainer />
+      <CommonModalContainer />
     </Fragment>
   );
 }

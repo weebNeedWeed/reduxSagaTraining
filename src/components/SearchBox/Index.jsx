@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 
 import PropTypes from "prop-types";
 
-function SearchBox({ keyword, onHandleChangeKeyword }) {
+function SearchBox({ filterKeyword, onHandleChangeKeyword }) {
   return (
     <TextField
       onChange={onHandleChangeKeyword}
@@ -12,13 +12,13 @@ function SearchBox({ keyword, onHandleChangeKeyword }) {
       type="search"
       name="search-box"
       label="Search"
-      value={keyword}
+      value={filterKeyword}
     />
   );
 }
 
 SearchBox.propTypes = {
-  keyword: PropTypes.string,
+  filterKeyword: PropTypes.string,
   onHandleChangeKeyword: PropTypes.func,
 };
 

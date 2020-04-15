@@ -15,12 +15,6 @@ export const fetchListTaskRequest = function (keyword = "") {
   };
 };
 
-export const fetchListTaskReset = function () {
-  return {
-    type: taskConstants.FETCH_TASK_RESET,
-  };
-};
-
 export const fetchListTaskSuccess = function (data) {
   return {
     type: taskConstants.FETCH_TASK_SUCCESS,
@@ -46,11 +40,11 @@ export const fetchListTaskFailed = function (error) {
  * filterTaskRequest -> filterTaskSuccess
  */
 
-export const filterTaskRequest = function (keyword) {
+export const filterTaskRequest = function (filterKeyword) {
   return {
     type: taskConstants.FILTER_TASK_REQUEST,
     payload: {
-      keyword,
+      filterKeyword,
     },
   };
 };

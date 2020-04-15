@@ -2,11 +2,12 @@ import taskConstants from "../constants/task";
 
 const initialState = {
   listTask: [],
+  filterKeyword: "",
 };
 
 const taskReducer = (state = initialState, action) => {
   switch (action.type) {
-    case taskConstants.FETCH_TASK_RESET:
+    case taskConstants.FETCH_TASK_REQUEST:
       return {
         ...state,
         listTask: [],
@@ -20,6 +21,11 @@ const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         listTask: [],
+      };
+    case taskConstants.FILTER_TASK_REQUEST:
+      return {
+        ...state,
+        filterKeyword: action.payload.filterKeyword,
       };
     case taskConstants.FILTER_TASK_SUCCESS:
       return {

@@ -1,26 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 
 import SearchBox from "./Index";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { filterTaskRequest } from "./../../actions/task";
 
 function SearchBoxContainer() {
-  const [keyword, setKeyword] = useState("");
-
   const dispatch = useDispatch();
 
+  const filterKeyword = useSelector((state) => state.task.filterKeyword);
+
   const handleChangeKeyword = function (event) {
-    const fieldInput = event.target.value;
+    const inputValue = event.target.value;
 
-    setKeyword(fieldInput);
-
-    dispatch(filterTaskRequest(fieldInput));
+    dispatch(filterTaskRequest(inputValue));
   };
 
   return (
-    <SearchBox keyword={keyword} onHandleChangeKeyword={handleChangeKeyword} />
+    <SearchBox
+      filterKeyword={filterKeyword}
+      onHandleChangeKeyword={handleChangeKeyword}
+    />
   );
 }
 

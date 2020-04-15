@@ -1,7 +1,6 @@
 import React from "react";
 
 import TaskList from "./../TaskList/Index";
-import TaskForm from "../TaskForm/Index";
 
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -17,7 +16,7 @@ import useStyles from "./styles";
 function TaskBoard(props) {
   const classes = useStyles();
 
-  const { statuses, tasks, handleOpenForm, openForm, handleCloseForm } = props;
+  const { statuses, tasks, openTaskCreator } = props;
 
   const renderBoard = function () {
     let xhtml = null;
@@ -47,18 +46,13 @@ function TaskBoard(props) {
     return xhtml;
   };
 
-  const renderForm = function () {
-    return <TaskForm openForm={openForm} handleCloseForm={handleCloseForm} />;
-  };
-
   return (
     <div className={classes.taskBoard}>
-      <Button variant="contained" color="primary" onClick={handleOpenForm}>
+      <Button variant="contained" color="primary" onClick={openTaskCreator}>
         <AddIcon /> Them moi
       </Button>
       {renderSearchBox()}
       {renderBoard()}
-      {renderForm()}
     </div>
   );
 }
@@ -78,9 +72,7 @@ TaskBoard.propTypes = {
       description: PropTypes.string,
     }),
   ),
-  handleOpenForm: PropTypes.func,
-  openForm: PropTypes.bool,
-  handleCloseForm: PropTypes.func,
+  openTaskCreator: PropTypes.func,
 };
 
 export default TaskBoard;

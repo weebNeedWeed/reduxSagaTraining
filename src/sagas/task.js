@@ -1,4 +1,4 @@
-import { takeLatest, call, put, delay, all } from "redux-saga/effects";
+import { takeLatest, call, put, delay, all, select } from "redux-saga/effects";
 
 import taskConstants from "./../constants/task";
 
@@ -9,14 +9,16 @@ import * as uiActions from "./../actions/ui";
 
 import { showErrorMessage } from "./../commons/utils/showToastMessage";
 
-function* fetchListTaskRequest({ payload }) {
+function* fetchListTaskRequest() {
   yield put(uiActions.setGlobalLoading(true));
 
   try {
     const response = yield call(fetchListTaskFromApi);
 
+    const filterKeyword = yield select((state) => state.task.filterKeyword);
+
     const filteredTask = response.data.filter((task) =>
-      task.title.includes(payload.keyword),
+      task.title.includes(filterKeyword),
     );
 
     yield put(taskActions.fetchListTaskSuccess(filteredTask));
@@ -29,12 +31,10 @@ function* fetchListTaskRequest({ payload }) {
   yield put(uiActions.setGlobalLoading(false));
 }
 
-function* filterTaskRequest({ payload }) {
+function* filterTaskRequest() {
   yield delay(500);
 
-  const { keyword } = payload;
-
-  yield put(taskActions.fetchListTaskRequest(keyword));
+  yield put(taskActions.fetchListTaskRequest());
 }
 
 function* root() {
