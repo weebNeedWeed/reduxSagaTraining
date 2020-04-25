@@ -5,7 +5,7 @@ const validate = (values) => {
   } else if (values.title.length < 5) {
     error.title = ">= 5";
   }
-  if (!values.status) {
+  if (values.status === undefined) {
     error.status = "required";
   }
   return error;
