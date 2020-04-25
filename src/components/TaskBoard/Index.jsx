@@ -66,7 +66,7 @@ TaskBoard.propTypes = {
   ),
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       status: PropTypes.number,
       title: PropTypes.string,
       description: PropTypes.string,

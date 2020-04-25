@@ -4,7 +4,7 @@ const styles = (theme) =>
   createStyles({
     modal: {
       position: "absolute",
-      width: "50%",
+      width: "80%",
       backgroundColor: theme.palette.background.paper,
       border: "2px solid #000",
       boxShadow: theme.shadows[5],
@@ -24,6 +24,9 @@ const styles = (theme) =>
       "&:hover": {
         transform: "scale(1.1)",
       },
+    },
+    content: {
+      padding: "1rem",
     },
   });
 

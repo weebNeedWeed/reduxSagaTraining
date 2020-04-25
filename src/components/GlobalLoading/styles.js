@@ -10,6 +10,7 @@ const styles = () =>
       width: "100%",
       height: "100%",
       zIndex: 99999,
+      filter: "brightness(60) blur(5)",
     },
     globalLoading__image: {
       position: "fixed",

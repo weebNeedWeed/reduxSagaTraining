@@ -56,3 +56,41 @@ export const filterTaskSuccess = function (data) {
     },
   };
 };
+
+export const addTaskRequest = function (data) {
+  return {
+    type: taskConstants.ADD_TASK_REQUEST,
+    payload: {
+      data,
+    },
+  };
+};
+export const addTaskSuccess = function (data) {
+  return {
+    type: taskConstants.ADD_TASK_SUCCESS,
+    payload: {
+      data,
+    },
+  };
+};
+export const addTaskFailed = function () {
+  return {
+    type: taskConstants.ADD_TASK_FAILED,
+  };
+};
+export const editTaskRequest = function (data) {
+  return {
+    type: taskConstants.EDIT_TASK_REQUEST,
+    payload: {
+      data,
+    },
+  };
+};
+export const editTaskSuccess = function (data) {
+  return {
+    type: taskConstants.EDIT_TASK_SUCCESS,
+    payload: {
+      data,
+    },
+  };
+};

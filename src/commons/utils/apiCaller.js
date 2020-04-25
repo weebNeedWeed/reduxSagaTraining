@@ -37,7 +37,9 @@ class callApi {
 
     let url = `${this.url}/${name}`;
 
-    endpoints.getAll = ({ query } = {}) => axios.get(url, { params: query });
+    endpoints.getAll = ({ query } = {}) => axios.get(url, query);
+    endpoints.post = ({ query } = {}) => axios.post(url, query);
+    endpoints.update = ({ query } = {}) => axios.patch(url, query);
 
     return endpoints;
   }

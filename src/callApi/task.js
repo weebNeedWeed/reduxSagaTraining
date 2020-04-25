@@ -11,3 +11,24 @@ export const fetchListTaskFromApi = () => {
   taskFetcher.createEntity();
   return taskFetcher.endpoints[apiEntity.name].getAll();
 };
+
+export const addNewTask = (data) => {
+  const apiEntity = {
+    name: "tasks",
+    url: API_ENDPOINT,
+  };
+  const taskPoster = new apiCaller(apiEntity);
+  taskPoster.createEntity();
+  taskPoster.endpoints[apiEntity.name].post({ query: data });
+  return;
+};
+export const updateTask = (data) => {
+  const apiEntity = {
+    name: "tasks/" + data.id,
+    url: API_ENDPOINT,
+  };
+  const taskPoster = new apiCaller(apiEntity);
+  taskPoster.createEntity();
+  taskPoster.endpoints[apiEntity.name].update({ query: data });
+  return;
+};

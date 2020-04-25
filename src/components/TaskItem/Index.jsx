@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 
 import useStyles from "./styles";
 
-function TaskItem({ task, status }) {
+function TaskItem({ task, status, onHandleEdit }) {
   const classes = useStyles();
   return (
     <Card className={classes.taskItem}>
@@ -31,7 +31,12 @@ function TaskItem({ task, status }) {
         <p>{task.description}</p>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Fab color="primary" aria-label="Edit" size="small">
+        <Fab
+          color="primary"
+          aria-label="Edit"
+          size="small"
+          onClick={onHandleEdit}
+        >
           <Icon fontSize="small">edit</Icon>
         </Fab>
         <Fab color="primary" aria-label="Delete" size="small">
@@ -44,7 +49,7 @@ function TaskItem({ task, status }) {
 
 TaskItem.propTypes = {
   task: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     status: PropTypes.number,
     title: PropTypes.string,
     description: PropTypes.string,
@@ -53,6 +58,7 @@ TaskItem.propTypes = {
     value: PropTypes.number,
     label: PropTypes.string,
   }),
+  onHandleEdit: PropTypes.func,
 };
 
 export default TaskItem;

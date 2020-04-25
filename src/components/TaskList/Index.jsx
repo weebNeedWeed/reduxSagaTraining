@@ -1,6 +1,6 @@
 import React from "react";
 
-import TaskItem from "./../TaskItem/Index";
+import TaskItemContainer from "./../TaskItem/Container";
 
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -15,7 +15,7 @@ function TaskList({ status, tasks }) {
 
   const renderTaskItem = function () {
     let xhtml = tasks.map((task) => {
-      return <TaskItem task={task} status={status} key={task.id} />;
+      return <TaskItemContainer task={task} status={status} key={task.id} />;
     });
     return xhtml;
   };
@@ -37,7 +37,7 @@ TaskList.propTypes = {
 
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       status: PropTypes.number,
       title: PropTypes.string,
       description: PropTypes.string,

@@ -8,7 +8,8 @@ function GlobalLoading() {
   const classes = useStyles();
 
   return (
-    <div className={classes.globalLoading}>
+    <div>
+      <div className={classes.globalLoading}></div>
       <img
         src={globalLoadingImage}
         className={classes.globalLoading__image}
